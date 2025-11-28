@@ -1,0 +1,36 @@
+/* This is an example CSS file to style Reveal.js slides generated from Logseq
+ * markdown via Pandoc.  If you'd like to use this as a starting point,
+ * copy it to your assets folder and name it "logseq-to-revealjs.css" */
+
+/* Background image */
+.reveal .slide-background {
+  background: url("revealjs-slide-background.jpg");
+  background-size: cover;           /* fills the entire slide */
+  background-position: center;      /* keeps it centered */
+  background-repeat: no-repeat;     /* no tiling */
+  filter: brightness(1.3) contrast(0.8) saturate(0.6); /* dims & softens colors */
+}
+
+/* Don't show captions for images. */
+.reveal figcaption {
+    display: none;
+}
+
+/* Color h1, h2 underlines to match theme */
+.reveal h1,
+.reveal h2 {
+  color: #562b10 !important;
+  border-bottom: thin solid #ab5621;
+}
+
+/* Logo in lower left corner */
+.reveal .slide-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("revealjs-slide-logo.png") no-repeat;
+  background-size: 15vw auto;
+  background-position: left 1vw bottom 1vh; /* ⬅ offsets from edges */
+  opacity: 1.0;
+  pointer-events: none;
+}

@@ -1,0 +1,17 @@
+{
+    "settings": {
+        "columns": 2
+    },
+    "pdf": {
+        "fonts": {
+            "text": {
+                "description": "sans 12"
+            },
+            "chord": {
+                "description": "sans bold 12",
+                "color": "#cc0000"
+            }
+        }
+    }
+}
+

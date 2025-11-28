@@ -51,6 +51,7 @@ pandoc ${MARKDOWN_FILE} \
     --standalone \
     --metadata theme="white" \
     --metadata transition="fade" \
+    --metadata backgroundTransition="none" \
     -V revealjs-url="https://unpkg.com/reveal.js" \
     -o "out.revealjs.html"
 

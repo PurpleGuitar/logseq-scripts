@@ -1,0 +1,19 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    border-bottom: thin solid black;
+}
+
+h2 {
+    border-bottom: thin solid gray;
+}
+
+img {
+    max-width: 100%;
+}
+
+figcaption {
+    display: none;
+}

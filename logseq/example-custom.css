@@ -1,0 +1,31 @@
+/*************************/
+/* Tone down headings a little */
+/*************************/
+
+/* Make h1 a little smaller, instead of 2em */
+.editor-inner .h1.uniline-block,.ls-block h1 {
+    font-size: 1.6em;
+    min-height: 1.6em;
+}
+
+/* Make h2 a little smaller, instead of 1.5em */
+.editor-inner .h2.uniline-block,.ls-block h2 {
+    font-size: 1.4em;
+    min-height: 1.4em;
+}
+
+/* Re-assert this from style.css so that references aren't huge */
+.block-ref :is(h1,h2,h3,h4,h5,h6) {
+    border-bottom: none;
+    font-size: 1rem;
+}
+
+/******************************************/
+/* Float images to the right if requested */
+/******************************************/
+
+.image-resize:has(.float-right) {
+  float: right;
+  margin-left: 0.5em;
+}
+.asset-container:has(.float-right) {float: right;}

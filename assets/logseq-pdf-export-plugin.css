@@ -1,0 +1,16 @@
+/* Use a nice readable font */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* H1 for page title */
+h1 {
+    text-align: center;
+    border-bottom: none;
+}
+
+/* H2 for section titles */
+h2 {
+    border-bottom: thin solid black;
+    margin-bottom: 0.5em;
+}

@@ -1,5 +1,8 @@
 # !/bin/bash
 
+# Uncomment to debug
+# set -x
+
 # Set clipboard tool based on whether we're X11 or Wayland
 if [ -n "$WAYLAND_DISPLAY" ]; then
     PASTE_FROM_CLIPBOARD="wl-paste"  # Wayland
@@ -18,8 +21,11 @@ fi
 MARKDOWN_FILE="out.txt"
 $PASTE_FROM_CLIPBOARD > ${MARKDOWN_FILE}
 
-# Extract title from first line of content
-# title="$(head -n 1 /tmp/clipboard-content.txt | sed -E 's/^[[:space:]]*#+[[:space:]]*//')" && \
+# If LOGSEQ_DOC_TITLE is not set, notify the user how to set it
+if [ -z "${LOGSEQ_DOC_TITLE:-}" ]; then
+    echo "WARNING: LOGSEQ_DOC_TITLE is not set." >&2
+    echo "You may see warnings about missing titles." >&2
+fi
 
 # Correct asset paths in markdown content
 # e.g. "../assets/image.png" to "assets/image.png"
@@ -34,6 +40,7 @@ pandoc ${MARKDOWN_FILE} \
     -t html \
     --standalone \
     --css assets/logseq-to-html.css \
+    --metadata title="${LOGSEQ_DOC_TITLE}" \
     -o "out.html"
 
 # to DOCX
@@ -41,6 +48,7 @@ pandoc ${MARKDOWN_FILE} \
     -f markdown \
     -t docx \
     --standalone \
+    --metadata title="${LOGSEQ_DOC_TITLE}" \
     -o "out.docx"
 
 # to reveal.js
@@ -52,6 +60,7 @@ pandoc ${MARKDOWN_FILE} \
     --metadata theme="white" \
     --metadata transition="fade" \
     --metadata backgroundTransition="none" \
+    --metadata title="${LOGSEQ_DOC_TITLE}" \
     -V revealjs-url="https://unpkg.com/reveal.js" \
     -o "out.revealjs.html"
 
@@ -60,6 +69,7 @@ pandoc ${MARKDOWN_FILE} \
     -f markdown \
     -t pptx \
     --standalone \
+    --metadata title="${LOGSEQ_DOC_TITLE}" \
     -o "out.pptx"
 
 # # to ChordPro PDF
@@ -74,6 +84,7 @@ pandoc ${MARKDOWN_FILE} \
 #     -f markdown \
 #     -t pdf \
 #     --standalone \
+#     --metadata title="${LOGSEQ_DOC_TITLE}" \
 #     -o "out.pdf"
 
 # # to Beamer
@@ -81,5 +92,6 @@ pandoc ${MARKDOWN_FILE} \
 #     -f markdown \
 #     -t beamer \
 #     --standalone \
+#     --metadata title="${LOGSEQ_DOC_TITLE}" \
 #     -o "out.beamer.pdf"
 

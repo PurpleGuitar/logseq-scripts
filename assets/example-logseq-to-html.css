@@ -13,11 +13,6 @@ h2 {
     border-bottom: thin solid black;
 }
 
-/* H3: Subsection title */
-h3 {
-    border-bottom: thin solid gray;
-}
-
 img {
     max-width: 100%;
 }
